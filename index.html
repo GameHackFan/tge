@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>TGE</title>
+    <link href="src/style.css" rel="stylesheet" type="text/css" />
+    <script src="src/LapData.js"></script>
+    <script src="src/FileService.js"></script>
+    <script src="src/ROMService.js"></script>
+    <script src="src/EditorService.js"></script>
+    <link rel="icon" href="image/red_car.png">
+  </head>
+  <body onload="editorService.populateTrackSelect()">
+    <div class="main">
+      <div class="header componentBox">
+        <img src="image/red_car.png" />
+        <img src="image/purple_car.png" />
+        <label>TGE (Top Gear Editor)</label>
+        <img src="image/blue_car.png" />
+        <img src="image/white_car.png" />
+      </div>
+      <div class="editor componentBox">
+        <div class="field">
+          <label>Select Track:</label>
+          <select
+            id="trackSelect"
+            onchange="editorService.onTrackSelected(this)"
+          >
+            <option value="-1">Select Track</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Lap Amount:</label>
+          <input
+            id="lapAmount" type="text"
+            onchange="editorService.onLapChanged(this)"
+          />
+          <label>(Type a value from 0 to 10)</label>
+        </div>
+        <div class="result">
+          <label>More than 10 laps will result in unwanted behavior.</label>
+          <label id="trackInfo"></label>
+        </div>
+        <div class="manager">
+          <label for="file" class="button">
+            Select ROM
+          </label>
+          <input id="file" type="file"/>
+          <button
+            class="button"
+            onclick="editorService.onCloneROM()"
+          >
+            Clone ROM
+          </button>
+          <button
+            class="button"
+            onclick="editorService.generateROM()">
+            Generate ROM
+          </button>
+        </div>
+        <div class="result">
+          <label id="message"></label>
+        </div>
+      </div>
+      <div class="footer componentBox">
+        <a href="https://github.com/GameHackFan/tge" target="_blank">
+          Source Code
+        </a>
+        <label class="header">
+          Version 0.1, &copy; 2021
+        </label>
+      </div>
+    </div>
+  </body>
+</html>
