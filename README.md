@@ -5,4 +5,4 @@ An editor for the game Top Gear (SNES).
 You can access the editor [here](https://gamehackfan.github.io/tge/).
 <br/><br/>
 
-It features only a lap editor.
+It features only a Lap Editor.
